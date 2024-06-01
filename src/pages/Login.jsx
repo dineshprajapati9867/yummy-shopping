@@ -29,7 +29,6 @@ const Login = () => {
         storeLocalStorageData.password !== password
       ) {
         alert("User not found");
-        
       }
     } catch (error) {
       toast.error("Login failed.");
@@ -64,12 +63,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link
-          to="/reset-password"
-          className="text-xs text-gray-600 hover:underline cursor-pointer -mb-1"
-        >
-          Forgot Password
-        </Link>
+
         <button
           type="submit"
           className="outline-none border rounded-md px-3 py-2 text-white bg-green-500 hover:bg-green-300"
