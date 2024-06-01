@@ -9,8 +9,6 @@ const CartSideBar = () => {
   const navigate=useNavigate()
   const [activeCart, setActiveCart] = useState(true);
   const cartItems = useSelector((state) => state.cart.cart);
-  console.log(cartItems);
-
   const totalQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0);
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.qty * item.price,
@@ -76,15 +74,11 @@ const CartSideBar = () => {
         </div>
       </div>
       <FaCartShopping
-      onClick={() => {
-        setActiveCart(!activeCart);
-      }}
-      className={`${
-        activeCart
-          ? 'fixed top-4 lg:right-2 right-2 rounded-xl bg-white cursor-pointer shadow-md lg:text-5xl text-4xl p-2'
-          : 'hidden'
-      }   lg:bottom-4 lg:right-1  lg:top-auto lg:left-auto ${totalQty >= 1 ? 'animate-bounce delay-500 transition-all' : ''}`}
-    />
+        onClick={() => setActiveCart(!activeCart)}
+        className={` ${activeCart? "rounded-lg bg-white shadow-md text-5xl p-3 fixed bottom-6 lg:right-4 right-2 ":"hidden"}${
+          totalQty > 0 && "animate-bounce delay-500 transition-all"
+        } `}
+      />
     </>
   );
 };

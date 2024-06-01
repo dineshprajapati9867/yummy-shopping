@@ -10,7 +10,7 @@ const SearchBar = () => {
   );
   return (
     <>
-      <div className="lg:absolute right-4">
+      <div className="lg:absolute right-14">
         <input
           onChange={(e) => setSearch(e.target.value)}
           value={search}
@@ -21,9 +21,9 @@ const SearchBar = () => {
           autoComplete="off"
         />
       </div>
-      <div className="flex lg:justify-end  justify-center lg:mt-11">
+      <div className="flex lg:justify-end  justify-center lg:mt-11 ">
         {search && (
-          <div className="absolute overflow-scroll bg-gray-200 lg:w-96  lg:right-0  h-[25vh]  z-50 my-1 rounded-lg px-2 py-2">
+          <div className="absolute overflow-scroll bg-gray-200 lg:w-96  lg:right-10  h-[25vh]  z-50 my-1 rounded-lg px-2 py-2">
             {filterSearchData.length > 0 ? (
               filterSearchData.map((item, index) => (
                 <div
