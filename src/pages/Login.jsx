@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../redux/slices/AuthSlice";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,21 +17,28 @@ const Login = () => {
     try {
       const userDataString = localStorage.getItem("userData");
       const storeLocalStorageData = JSON.parse(userDataString);
-      if (
-        storeLocalStorageData.email === email &&
-        storeLocalStorageData.password === password
-      ) {
-        toast.success("Login Successful");
-        dispatch(loginUser());
-        navigate("/");
-      } else if (
-        storeLocalStorageData.email !== email &&
-        storeLocalStorageData.password !== password
-      ) {
-        alert("User not found");
+
+      if (storeLocalStorageData) {
+        if (
+          storeLocalStorageData.email === email &&
+          storeLocalStorageData.password === password
+        ) {
+          dispatch(loginUser());
+          navigate("/");
+            setTimeout(() => {
+              toast.success("Login Successful");
+             
+            }, 1000);
+        } else if (storeLocalStorageData.email !== email) {
+          toast.error("Email incorrect");
+        } else if (storeLocalStorageData.password !== password) {
+          toast.error("Password incorrect");
+        }
+      } else {
+        toast.error("User data not found. Please sign up first.");
       }
     } catch (error) {
-      toast.error("Login failed.");
+      toast.error("error");
     }
   };
 
@@ -77,6 +84,7 @@ const Login = () => {
           </Link>
         </p>
       </form>
+      <Toaster />
     </div>
   );
 };

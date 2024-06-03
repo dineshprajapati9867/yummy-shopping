@@ -1,6 +1,6 @@
 import React from "react";
 import FoodCard from "./FoodCard";
-import FoodData from "../Date/FoodData.js";
+import FoodData from "../Data/FoodData.js";
 import { useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 const FoodItems = () => {

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signupUser } from "../redux/slices/AuthSlice";
 import { useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
+
 const Signup = () => {
-   const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -19,8 +21,12 @@ const Signup = () => {
     };
 
     localStorage.setItem("userData", JSON.stringify(userData));
-    dispatch(signupUser())
-    navigate("/login");
+    dispatch(signupUser());
+    toast.success("Signup successful");
+
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (
@@ -76,6 +82,7 @@ const Signup = () => {
           </Link>
         </p>
       </form>
+      <Toaster />
     </div>
   );
 };

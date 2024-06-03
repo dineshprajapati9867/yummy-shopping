@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../redux/slices/AuthSlice"; // Adjust the import path based on your project structure
+import { logoutUser } from "../redux/slices/AuthSlice";
 import { toast } from "react-hot-toast";
 
 const Profile = ({ toggleNav, setToggleNav }) => {
@@ -11,7 +11,6 @@ const Profile = ({ toggleNav, setToggleNav }) => {
  
   const handleLogout = () => {
     dispatch(logoutUser());
-    // localStorage.clear()
     toast.success("Logged out successfully");
   };
 

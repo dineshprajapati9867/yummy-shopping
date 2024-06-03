@@ -1,4 +1,4 @@
-import FoodData from "../Date/FoodData";
+import FoodData from "../Data/FoodData";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const SearchBar = () => {
@@ -10,11 +10,11 @@ const SearchBar = () => {
   );
   return (
     <>
-      <div className="lg:absolute right-14">
+      <div className="lg:absolute right-14 ">
         <input
           onChange={(e) => setSearch(e.target.value)}
           value={search}
-          className="p-3 border ml-16  border-gray-600 text-sm rounded-lg outline-none w-[55vw]  lg:w-[25vw]"
+          className="  p-3 border ml-16  border-gray-600 text-sm rounded-lg outline-none w-[55vw]  lg:w-[25vw] "
           type="search"
           name="search"
           placeholder="Search Here..."

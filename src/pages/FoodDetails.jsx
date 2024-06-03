@@ -6,7 +6,6 @@ import CartSideBar from "../components/CartSideBar";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/CartSlice";
 import toast, { Toaster } from "react-hot-toast";
-// import SideBarItemsCard from "../components/SideBarItemsCard";
 
 const FoodDetails = () => {
   const { id, name, price, desc, rating, img } = useParams();
