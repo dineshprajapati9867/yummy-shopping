@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
 const Success = () => {
   const [loading, setLoading] = useState(true);
@@ -17,7 +18,14 @@ const Success = () => {
             <h2 className="text-3xl font-semibold mb-4 text-center">
               Order Successful!
             </h2>
+
             <p>Your order has been sucessfully placed</p>
+            <h3>
+              You Can Check your Order In Your{" "}
+              <Link to={"/user-profile"} className="text-blue-600 text-2xl ml-1">
+                Profile
+              </Link>{" "}
+            </h3>
           </div>
         )}
       </div>
